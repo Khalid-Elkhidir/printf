@@ -25,15 +25,6 @@ int print_arg(const char *format, int index, va_list args)
 	{
 		return (print_string(args));
 	}
-	else if (next_c == '%')
-	{
-	}
-	else if (next_c == 'i')
-	{
-	}
-	else if (next_c == 'd')
-	{
-	}
 }
 
 
@@ -65,15 +56,14 @@ int _printf(const char *format, ...)
 		if (c != '%')
 		{
 			_putchar(c);
+			length++;
 		}
 		else
 		{
 			length += print_arg(format, index, args);
 			index++;
-			continue;
 		}
 
-		length++;
 		index++;
 	}
 
