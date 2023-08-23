@@ -11,20 +11,26 @@
  */
 int print_arg(const char *format, int index, va_list args)
 {
-	char next_c = *(format + index + 1);
+	char n = *(format + index + 1);
 
-	if (next_c == '\0')
+	if (n == '\0')
 	{
-		return (_putchat(next_c));
+		_putchat(n);
 	}
-	else if (next_c == 'c')
+	else if (n == 'c')
 	{
 		return (print_char(args));
 	}
-	else if (next_c == 's')
+	else if (n == 's')
 	{
 		return (print_string(args));
 	}
+	else if (n == '%')
+	{
+		_putchar('%');
+	}
+	
+	return (1);
 }
 
 
